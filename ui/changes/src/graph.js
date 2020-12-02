@@ -152,13 +152,43 @@ function rerender(connections, teamComponentMapping) {
   console.log(connections);
   console.log(teamComponentMapping);
 
+  let allComponents = [];
+  for (let c of connections) {
+    allComponents.push(c.component);
+  }
+  console.log(allComponents);
+
+  let expandedTeamComponentMapping = {};
+  for (let team in teamComponentMapping) {
+    expandedTeamComponentMapping[team] = [];
+    for (let componentGroup in teamComponentMapping[team]) {
+      let obj = teamComponentMapping[team][componentGroup];
+      console.log(team, componentGroup);
+      if (obj.all_components) {
+        expandedTeamComponentMapping[team] = expandedTeamComponentMapping[
+          team
+        ].concat(
+          allComponents.filter((component) =>
+            component.startsWith(`${componentGroup}::`)
+          )
+        );
+        //expandedTeamComponentMapping[team].push();
+      } else {
+        expandedTeamComponentMapping[team] = expandedTeamComponentMapping[
+          team
+        ].concat(obj.named_components.map((c) => `${componentGroup}::${c}`));
+      }
+    }
+  }
+
+  console.log(expandedTeamComponentMapping);
   // Return an object with each component and the components that are most likely
   // to cause regressions to that component.
   let connectionsMap = {};
   for (let c of connections) {
     for (let regression_component in c.most_common_regression_components) {
       // Ignore < N%
-      if (c.most_common_regression_components[regression_component] < .05) {
+      if (c.most_common_regression_components[regression_component] < 0.05) {
         continue;
       }
       if (!connectionsMap[regression_component]) {
