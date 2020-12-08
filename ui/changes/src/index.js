@@ -1,22 +1,23 @@
 // TODO: On click, show previous components affected by similar patches.
 // TODO: On click, show previous bugs caused by similar patches.
 
-import { Temporal } from 'proposal-temporal/lib/index.mjs';
+import { Temporal } from "proposal-temporal/lib/index.mjs";
 
-import ApexCharts from 'apexcharts'
+import ApexCharts from "apexcharts";
 
 import {
   TESTING_TAGS,
   featureMetabugs,
   landingsData,
   getNewTestingTagCountObject,
+  setupOptionsObject,
 } from "./common.js";
 
 const HIGH_RISK_COLOR = "rgb(255, 13, 87)";
 const MEDIUM_RISK_COLOR = "darkkhaki";
 const LOW_RISK_COLOR = "green";
 
-let options = {
+let { getOption, setOption, getOptionType } = setupOptionsObject({
   metaBugID: {
     value: null,
     type: "text",
@@ -37,7 +38,9 @@ let options = {
     value: null,
     type: "checkbox",
   },
-};
+}, function onchange() {
+  rebuildTable();
+});
 
 if (new URLSearchParams(window.location.search).has("riskiness")) {
   document.querySelector("#riskinessEnabled").checked = true;
@@ -59,18 +62,6 @@ async function buildMetabugsDropdown() {
     option.textContent = bug.summary;
     metabugsDropdown.append(option);
   }
-}
-
-function getOption(name) {
-  return options[name].value;
-}
-
-function getOptionType(name) {
-  return options[name].type;
-}
-
-function setOption(name, value) {
-  return (options[name].value = value);
 }
 
 function addRow(bugSummary) {
@@ -160,7 +151,8 @@ function addRow(bugSummary) {
   }
   if (lines_added != 0) {
     if (lines_unknown != 0) {
-      coverage_column.textContent = `${lines_covered}-${lines_covered + lines_unknown} of ${lines_added}`;
+      coverage_column.textContent = `${lines_covered}-${lines_covered +
+        lines_unknown} of ${lines_added}`;
     } else {
       coverage_column.textContent = `${lines_covered} of ${lines_added}`;
     }
@@ -175,17 +167,17 @@ function addRow(bugSummary) {
     let risk_text = document.createElement("span");
     risk_text.textContent = `${bugSummary.risk_band} risk`;
     if (bugSummary.risk_band == "l") {
-        // Lower than average risk.
-        risk_text.style.color = LOW_RISK_COLOR;
-        risk_text.textContent = 'Lower risk';
+      // Lower than average risk.
+      risk_text.style.color = LOW_RISK_COLOR;
+      risk_text.textContent = "Lower risk";
     } else if (bugSummary.risk_band == "a") {
-        // Average risk.
-        risk_text.style.color = MEDIUM_RISK_COLOR;
-        risk_text.textContent = 'Average risk';
+      // Average risk.
+      risk_text.style.color = MEDIUM_RISK_COLOR;
+      risk_text.textContent = "Average risk";
     } else {
-        // Higher than average risk.
-        risk_text.style.color = HIGH_RISK_COLOR;
-        risk_text.textContent = 'Higher risk';
+      // Higher than average risk.
+      risk_text.style.color = HIGH_RISK_COLOR;
+      risk_text.textContent = "Higher risk";
     }
 
     risk_column.append(risk_text);
@@ -365,48 +357,5 @@ function rebuildTable() {
 
 (function init() {
   buildMetabugsDropdown();
-
-  Object.keys(options).forEach(function (optionName) {
-    let optionType = getOptionType(optionName);
-    let elem = document.getElementById(optionName);
-
-    if (optionType === "text") {
-      setOption(optionName, elem.value);
-      elem.addEventListener("change", function () {
-        setOption(optionName, elem.value);
-        rebuildTable();
-      });
-    } else if (optionType === "checkbox") {
-      setOption(optionName, elem.checked);
-
-      elem.onchange = function () {
-        setOption(optionName, elem.checked);
-        rebuildTable();
-      };
-    } else if (optionType === "select") {
-      let value = [];
-      for (let option of elem.options) {
-        if (option.selected) {
-          value.push(option.value);
-        }
-      }
-
-      setOption(optionName, value);
-
-      elem.onchange = function () {
-        let value = [];
-        for (let option of elem.options) {
-          if (option.selected) {
-            value.push(option.value);
-          }
-        }
-
-        setOption(optionName, value);
-        rebuildTable();
-      };
-    } else {
-      throw new Error("Unexpected option type.");
-    }
-  });
   buildTable();
 })();

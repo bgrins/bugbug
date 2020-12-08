@@ -72,10 +72,10 @@ export const TESTING_TAGS = {
   unknown: {
     color: getCSSVariableValue("--grey-30"),
     label: "unknown",
-  }
+  },
 };
 
-let taskclusterLandingsArtifact = (async function () {
+let taskclusterLandingsArtifact = (async function() {
   let json = await EXPIRE_CACHE.get("taskclusterLandingsArtifact");
   if (!json) {
     let response = await fetch(LANDINGS_URL);
@@ -86,10 +86,11 @@ let taskclusterLandingsArtifact = (async function () {
     console.log("taskclusterLandingsArtifact cache hit", json);
   }
 
+  window.LANDINGS_ARTIFACT = json;
   return json;
 })();
 
-let taskclusterComponentConnectionsArtifact = (async function () {
+let taskclusterComponentConnectionsArtifact = (async function() {
   let json = await EXPIRE_CACHE.get("taskclusterComponentConnectionsArtifact");
   if (!json) {
     let response = await fetch(COMPONENT_CONNECTIONS_URL);
@@ -103,18 +104,17 @@ let taskclusterComponentConnectionsArtifact = (async function () {
   return json;
 })();
 
-
-export let componentConnections = (async function () {
+export let componentConnections = (async function() {
   let json = await taskclusterComponentConnectionsArtifact;
   return json;
 })();
 
-export let featureMetabugs = (async function () {
+export let featureMetabugs = (async function() {
   let json = await taskclusterLandingsArtifact;
   return json.featureMetaBugs;
 })();
 
-export let landingsData = (async function () {
+export let landingsData = (async function() {
   let json = await taskclusterLandingsArtifact;
   json = json.landings;
 
@@ -174,7 +174,7 @@ export async function getTestingPolicySummaryData(grouping = "daily", filter) {
         continue;
       }
       for (let commit of bug.commits) {
-        if (!commit.testing ) {
+        if (!commit.testing) {
           returnedDataForDate.unknown++;
         } else {
           returnedDataForDate[commit.testing] =
@@ -222,4 +222,63 @@ export async function getTestingPolicySummaryData(grouping = "daily", filter) {
   }
 
   return dailyData;
+}
+
+export function setupOptionsObject(options, onchange) {
+  Object.keys(options).forEach(function(optionName) {
+    let optionType = getOptionType(optionName);
+    let elem = document.getElementById(optionName);
+
+    if (optionType === "text") {
+      setOption(optionName, elem.value);
+      elem.addEventListener("change", function() {
+        setOption(optionName, elem.value);
+        onchange();
+      });
+    } else if (optionType === "checkbox") {
+      setOption(optionName, elem.checked);
+
+      elem.onchange = function() {
+        setOption(optionName, elem.checked);
+        onchange();
+      };
+    } else if (optionType === "select") {
+      let value = [];
+      for (let option of elem.options) {
+        if (option.selected) {
+          value.push(option.value);
+        }
+      }
+
+      setOption(optionName, value);
+
+      elem.onchange = function() {
+        let value = [];
+        for (let option of elem.options) {
+          if (option.selected) {
+            value.push(option.value);
+          }
+        }
+
+        setOption(optionName, value);
+        onchange();
+      };
+    } else {
+      throw new Error("Unexpected option type.");
+    }
+  });
+
+  function getOption(name) {
+    return options[name].value;
+  }
+
+  function getOptionType(name) {
+    return options[name].type;
+  }
+
+  function setOption(name, value) {
+    return (options[name].value = value);
+  }
+
+  return { getOption, getOptionType, setOption };
 }
