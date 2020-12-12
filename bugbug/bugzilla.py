@@ -311,9 +311,11 @@ def get_product_component_count(months: int = 12) -> Dict[str, int]:
 
 
 def get_component_team_mapping() -> dict:
+    import os
+    print(os.environ.get("BUGBUG_BUGZILLA_TOKEN"))
     r = utils.get_session("bugzilla").get(
         "https://bugzilla.mozilla.org/rest/config/component_teams",
-        headers={"X-Bugzilla-API-Key": Bugzilla.TOKEN, "User-Agent": "bugbug"},
+        headers={"X-Bugzilla-API-Key": os.environ.get("BUGBUG_BUGZILLA_TOKEN"), "User-Agent": "bugbug"},
     )
     r.raise_for_status()
     return r.json()
