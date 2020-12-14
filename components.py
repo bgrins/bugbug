@@ -1,23 +1,23 @@
 
-from bugbug import db, repository, bugzilla
+from bugbug import db, repository, bugzilla, utils
+import csv
 
-# COMPONENT_COUNTS = {}
-# for path in PATHS:
-#   file_path = path.split(":")[0]
-#   count = int(path.split(":")[1])
-#   path_to_component = repository.get_component_mapping()
-#   try:
-#     component = path_to_component[file_path.encode("utf-8")].tobytes().decode("utf-8")
-#     if component in COMPONENT_COUNTS:
-#       COMPONENT_COUNTS[component] = COMPONENT_COUNTS[component] + count
-#     else:
-#       COMPONENT_COUNTS[component] = count
-#   except KeyError:
-#     print("error with " + file_path)
-# print(dict(sorted(COMPONENT_COUNTS.items(), key=lambda item: -item[1])))
-# print(bugzilla.get_component_team_mapping())
-print(bugzilla.component_to_team(bugzilla.get_component_team_mapping(), "Core", "Security: PSM"))
+r = utils.get_session("bugzilla").get(
+    "https://bugzilla.mozilla.org/rest/product?type=enterable&include_fields=name&include_fields=components.name&include_fields=components.triage_owner&names=Core&names=Toolkit&names=Firefox"
+)
+r.raise_for_status()
+products = r.json()["products"]
 
+team_mapping = bugzilla.get_component_team_mapping()
 
+print(bugzilla.component_to_team(team_mapping, "Core", "JavaScript Engine"))
 
-# get_component_team_mapping
+with open("components.csv", "w") as f:
+  writer = csv.writer(f)
+  writer.writerow(["Product", "Component", "Team", "Triage owner"])
+  for product in products:
+    print(product)
+    for component in product.get("components"):
+      team = bugzilla.component_to_team(team_mapping, product.get("name"), component.get("name"))
+      writer.writerow([product.get("name"), component.get("name"), team, component.get("triage_owner")])
+

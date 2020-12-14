@@ -1,0 +1,225 @@
+Product,Component,Team,Triage owner
+Firefox,about:logins,Frontend,sfoster@mozilla.com
+Firefox,Activity Streams: General,Pocket and User Journey,tspurway@mozilla.com
+Firefox,Activity Streams: Server Operations,Pocket and User Journey,tspurway@mozilla.com
+Firefox,Activity Streams: Timeline,Pocket and User Journey,tspurway@mozilla.com
+Firefox,Address Bar,Frontend,adw@mozilla.com
+Firefox,Bookmarks & History,Frontend,mak@mozilla.com
+Firefox,Disability Access,Frontend,asa@mozilla.org
+Firefox,Distributions,Frontend,mozilla@kaply.com
+Firefox,Downloads Panel,Frontend,mak@mozilla.com
+Firefox,Enterprise Policies,Frontend,mozilla@kaply.com
+Firefox,Extension Compatibility,Web Extensions,jorge@mozilla.com
+Firefox,File Handling,Frontend,gijskruitbosch+bugs@gmail.com
+Firefox,Firefox Accounts,Services,markh@mozilla.com
+Firefox,Firefox Monitor,Privacy and Security,lcrouch@mozilla.com
+Firefox,General,Frontend,dtownsend@mozilla.com
+Firefox,Headless,Other,bdahl@mozilla.com
+Firefox,Installer,Frontend,mhowell@mozilla.com
+Firefox,Keyboard Navigation,Frontend,dao+bmo@mozilla.com
+Firefox,Launcher Process,Platform,tkikuchi@mozilla.com
+Firefox,Menus,Frontend,jaws@mozilla.com
+Firefox,Messaging System,Pocket and User Journey,tspurway@mozilla.com
+Firefox,Migration,Frontend,gijskruitbosch+bugs@gmail.com
+Firefox,New Tab Page,Pocket and User Journey,sdowne@getpocket.com
+Firefox,Nimbus Desktop Client,,khudson@mozilla.com
+Firefox,Normandy Client,Other,mcooper@mozilla.com
+Firefox,Normandy Server,Other,mcooper@mozilla.com
+Firefox,Page Info Window,Frontend,florian@mozilla.com
+Firefox,PDF Viewer,Other,bdahl@mozilla.com
+Firefox,Pioneer,,rhelmer@mozilla.com
+Firefox,Pocket,Pocket and User Journey,sdowne@getpocket.com
+Firefox,Preferences,Frontend,jaws@mozilla.com
+Firefox,Private Browsing,Privacy and Security,jhofmann@mozilla.com
+Firefox,Protections UI,Privacy and Security,ewright@mozilla.com
+Firefox,Remote Settings Client,Services,mathieu@mozilla.com
+Firefox,Screenshots,Other,emalysz@mozilla.com
+Firefox,Search,Frontend,dharvey@mozilla.com
+Firefox,Security,Privacy and Security,jhofmann@mozilla.com
+Firefox,Services Automation,,tarek@mozilla.com
+Firefox,Session Restore,Frontend,mdeboer@mozilla.com
+Firefox,Shell Integration,Other,mhowell@mozilla.com
+Firefox,Site Identity,Privacy and Security,nhnt11@gmail.com
+Firefox,Site Permissions,Privacy and Security,pbz@mozilla.com
+Firefox,Sync,Services,markh@mozilla.com
+Firefox,System Add-ons: Off-train Deployment,Other,rdalal@mozilla.com
+Firefox,Tabbed Browser,Frontend,dao+bmo@mozilla.com
+Firefox,Theme,Frontend,dao+bmo@mozilla.com
+Firefox,Toolbars and Customization,Frontend,gijskruitbosch+bugs@gmail.com
+Firefox,Top Sites,,dao+bmo@mozilla.com
+Firefox,Tours,Frontend,edilee@mozilla.com
+Firefox,Translation,Frontend,florian@mozilla.com
+Firefox,Untriaged,Other,
+Firefox,WebPayments UI,Frontend,jmathies@mozilla.com
+Toolkit,about:memory,Other,continuation@gmail.com
+Toolkit,Add-ons Manager,Web Extensions,mixedpuppy@gmail.com
+Toolkit,Application Update,Frontend,mhowell@mozilla.com
+Toolkit,Async Tooling,Platform,gijskruitbosch+bugs@gmail.com
+Toolkit,Autocomplete,Frontend,mak@mozilla.com
+Toolkit,Blocklist Implementation,Web Extensions,gijskruitbosch+bugs@gmail.com
+Toolkit,Blocklist Policy Requests,Web Extensions,awagner@mozilla.com
+Toolkit,Crash Reporting,Other,gsvelto@mozilla.com
+Toolkit,Data Sanitization,Privacy and Security,jhofmann@mozilla.com
+Toolkit,Downloads API,Frontend,mak@mozilla.com
+Toolkit,FeatureGate,Other,mcooper@mozilla.com
+Toolkit,Find Toolbar,Frontend,mdeboer@mozilla.com
+Toolkit,Form Autofill,Frontend,jmathies@mozilla.com
+Toolkit,Form Manager,Frontend,sfoster@mozilla.com
+Toolkit,General,Frontend,dtownsend@mozilla.com
+Toolkit,Notifications and Alerts,Frontend,tspurway@mozilla.com
+Toolkit,NSIS Installer,Platform,mhowell@mozilla.com
+Toolkit,OS.File,Platform,brennie@mozilla.com
+Toolkit,Password Manager,Frontend,sfoster@mozilla.com
+Toolkit,Password Manager: Site Compatibility,Frontend,sfoster@mozilla.com
+Toolkit,Performance Monitoring,Other,florian@mozilla.com
+Toolkit,Places,Frontend,mak@mozilla.com
+Toolkit,Preferences,Frontend,jaws@mozilla.com
+Toolkit,Printing,Frontend,mstriemer@mozilla.com
+Toolkit,Reader Mode,Frontend,gijskruitbosch+bugs@gmail.com
+Toolkit,Safe Browsing,Privacy and Security,dlee@mozilla.com
+Toolkit,Startup and Profile System,Frontend,dtownsend@mozilla.com
+Toolkit,Storage,Frontend,mak@mozilla.com
+Toolkit,Telemetry,Other,chutten@mozilla.com
+Toolkit,Themes,Frontend,dao+bmo@mozilla.com
+Toolkit,Toolbars and Toolbar Customization,Frontend,gijskruitbosch+bugs@gmail.com
+Toolkit,Video/Audio Controls,Frontend,jaws@mozilla.com
+Toolkit,View Source,Frontend,odvarko@gmail.com
+Toolkit,WebPayments UI,Frontend,mozilla+bmo@noorenberghe.ca
+Toolkit,XUL Widgets,Frontend,mstriemer@mozilla.com
+Core,Applied Machine Learning,,anatal@gmail.com
+Core,Audio/Video,Media,bvandyk@mozilla.com
+Core,Audio/Video: cubeb,Media,padenot@mozilla.com
+Core,Audio/Video: GMP,Media,bvandyk@mozilla.com
+Core,Audio/Video: MediaStreamGraph,Media,padenot@mozilla.com
+Core,Audio/Video: Playback,Media,bvandyk@mozilla.com
+Core,Audio/Video: Recording,Media,padenot@mozilla.com
+Core,AutoConfig (Mission Control Desktop),Frontend,mozilla@kaply.com
+Core,Canvas: 2D,GFX,lsalzman@mozilla.com
+Core,Canvas: WebGL,Platform,jgilbert@mozilla.com
+Core,CSS Parsing and Computation,Layout,cam@mcc.id.au
+Core,CSS Transitions and Animations,Layout,boris.chiou@gmail.com
+Core,Disability Access APIs,Other,jteh@mozilla.com
+Core,DMD,Platform,continuation@gmail.com
+Core,DOM: Animation,DOM,boris.chiou@gmail.com
+Core,DOM: Bindings (WebIDL),DOM,echen@mozilla.com
+Core,DOM: Content Processes,DOM,nkochar@mozilla.com
+Core,DOM: Core & HTML,DOM,jstutte@mozilla.com
+Core,DOM: CSS Object Model,DOM,emilio@crisal.io
+Core,DOM: Device Interfaces,DOM,dmu@mozilla.com
+Core,DOM: Drag & Drop,DOM,jstutte@mozilla.com
+Core,DOM: Editor,DOM,jstutte@mozilla.com
+Core,DOM: Events,DOM,jstutte@mozilla.com
+Core,DOM: File,DOM,jstutte@mozilla.com
+Core,DOM: Forms,DOM,jstutte@mozilla.com
+Core,DOM: Geolocation,DOM,jstutte@mozilla.com
+Core,DOM: HTML Parser,DOM,jstutte@mozilla.com
+Core,DOM: Navigation,DOM,nkochar@mozilla.com
+Core,DOM: Networking,DOM,jstutte@mozilla.com
+Core,DOM: postMessage,DOM,jstutte@mozilla.com
+Core,DOM: Push Notifications,DOM,jstutte@mozilla.com
+Core,DOM: Security,DOM,ckerschb@christophkerschbaumer.com
+Core,DOM: Selection,DOM,jstutte@mozilla.com
+Core,DOM: Serializers,DOM,jstutte@mozilla.com
+Core,DOM: Service Workers,DOM,jstutte@mozilla.com
+Core,DOM: UI Events & Focus Handling,DOM,jstutte@mozilla.com
+Core,DOM: Web Authentication,DOM,dveditz@mozilla.com
+Core,DOM: Web Crypto,DOM,dkeeler@mozilla.com
+Core,DOM: Web Payments,DOM,jstutte@mozilla.com
+Core,DOM: Window and Location,DOM,nkochar@mozilla.com
+Core,DOM: Workers,DOM,jstutte@mozilla.com
+Core,Find Backend,Frontend,mdeboer@mozilla.com
+Core,Fuzzing,,choller@mozilla.com
+Core,Gecko Profiler,DevTools,gsquelart@mozilla.com
+Core,General,Other,overholt@mozilla.com
+Core,GFX: Color Management,GFX,aosmond@mozilla.com
+Core,Graphics,GFX,jmathies@mozilla.com
+Core,Graphics: Layers,GFX,jmathies@mozilla.com
+Core,Graphics: Text,GFX,lsalzman@mozilla.com
+Core,Graphics: WebGPU,GFX,dmalyshau@mozilla.com
+Core,Graphics: WebRender,GFX,jmathies@mozilla.com
+Core,Hardware Abstraction Layer (HAL),Platform,gsvelto@mozilla.com
+Core,Image Blocking,DOM,aosmond@mozilla.com
+Core,ImageLib,GFX,aosmond@mozilla.com
+Core,Internationalization,Layout,m_kato@ga2.so-net.ne.jp
+Core,Internationalization: Localization,,zbraniecki@mozilla.com
+Core,IPC,Platform,jld@mozilla.com
+Core,IPC: MSCOM,Platform,aklotz@mozilla.com
+Core,JavaScript Engine,Javascript,sdetar@mozilla.com
+Core,JavaScript Engine: JIT,Javascript,sdetar@mozilla.com
+Core,JavaScript: GC,Javascript,jcoppeard@mozilla.com
+Core,JavaScript: Internationalization API,Javascript,jwalden@mit.edu
+Core,JavaScript: Standard Library,Javascript,jorendorff@mozilla.com
+Core,Javascript: WebAssembly,Javascript,lhansen@mozilla.com
+Core,js-ctypes,Javascript,jorendorff@mozilla.com
+Core,Layout,Layout,dholbert@mozilla.com
+Core,Layout: Block and Inline,Layout,jfkthame@gmail.com
+Core,Layout: Columns,Layout,aethanyc@gmail.com
+Core,Layout: Flexbox,Layout,dholbert@mozilla.com
+Core,Layout: Floats,Layout,aethanyc@gmail.com
+Core,Layout: Form Controls,Layout,emilio@crisal.io
+Core,"Layout: Generated Content, Lists, and Counters",Layout,mats@mozilla.com
+Core,Layout: Grid,Layout,mats@mozilla.com
+Core,"Layout: Images, Video, and HTML Frames",Layout,emilio@crisal.io
+Core,Layout: Positioned,Layout,dholbert@mozilla.com
+Core,Layout: Ruby,Layout,dholbert@mozilla.com
+Core,Layout: Scrolling and Overflow,Layout,hikezoe.birchill@mozilla.com
+Core,Layout: Tables,Layout,dholbert@mozilla.com
+Core,Layout: Text and Fonts,Layout,jfkthame@gmail.com
+Core,MathML,Layout,emilio@crisal.io
+Core,Memory Allocator,Platform,mh+mozilla@glandium.org
+Core,MFBT,Platform,sgiesecke@mozilla.com
+Core,mozglue,Platform,mh+mozilla@glandium.org
+Core,Networking,Networking,jstutte@mozilla.com
+Core,Networking: Cache,Networking,jstutte@mozilla.com
+Core,Networking: Cookies,Networking,jstutte@mozilla.com
+Core,Networking: DNS,Networking,jstutte@mozilla.com
+Core,Networking: Domain Lists,Networking,jstutte@mozilla.com
+Core,Networking: File,Networking,jstutte@mozilla.com
+Core,Networking: FTP,Networking,jstutte@mozilla.com
+Core,Networking: HTTP,Networking,jstutte@mozilla.com
+Core,Networking: JAR,Networking,jstutte@mozilla.com
+Core,Networking: WebSockets,Networking,jstutte@mozilla.com
+Core,Panning and Zooming,GFX,botond@mozilla.com
+Core,Performance,Other,kmoir@mozilla.com
+Core,Permission Manager,Privacy and Security,tihuang@mozilla.com
+Core,Plug-ins,Platform,jmathies@mozilla.com
+Core,Preferences: Backend,Platform,kwright@mozilla.com
+Core,Print Preview,Layout,jwatt@jwatt.org
+Core,Printing: Output,Layout,jwatt@jwatt.org
+Core,Printing: Setup,Layout,jwatt@jwatt.org
+Core,Privacy: Anti-Tracking,Privacy and Security,tihuang@mozilla.com
+Core,Sanitizers,,choller@mozilla.com
+Core,Security,Privacy and Security,dveditz@mozilla.com
+Core,"Security Block-lists, Allow-lists, and other State",,dkeeler@mozilla.com
+Core,Security: CAPS,DOM,ckerschb@christophkerschbaumer.com
+Core,Security: Process Sandboxing,Platform,gpascutto@mozilla.com
+Core,Security: PSM,Crypto,dkeeler@mozilla.com
+Core,Spelling checker,Other,bugs@pettay.fi
+Core,Storage: Cache API,DOM,jstutte@mozilla.com
+Core,Storage: IndexedDB,DOM,jstutte@mozilla.com
+Core,Storage: localStorage & sessionStorage,DOM,jstutte@mozilla.com
+Core,Storage: Quota Manager,DOM,jstutte@mozilla.com
+Core,Storage: StorageManager,DOM,jstutte@mozilla.com
+Core,String,Platform,nobody@mozilla.org
+Core,SVG,Layout,jwatt@jwatt.org
+Core,Untriaged,Other,overholt@mozilla.com
+Core,Web Audio,Media,padenot@mozilla.com
+Core,Web Painting,GFX,matt.woodrow@gmail.com
+Core,Web Speech,Other,anatal@mozilla.com
+Core,WebRTC,Media,dminor@mozilla.com
+Core,WebRTC: Audio/Video,Media,jib@mozilla.com
+Core,WebRTC: Networking,Media,docfaraday@gmail.com
+Core,WebRTC: Signaling,Media,na-g@nostrum.com
+Core,WebVR,Other,kearwood@kearwood.com
+Core,Widget,Platform,jmathies@mozilla.com
+Core,Widget: Android,Platform,snorp@snorp.net
+Core,Widget: Cocoa,Platform,spohl.mozilla.bugs@gmail.com
+Core,Widget: Gtk,Platform,stransky@redhat.com
+Core,Widget: Win32,Platform,jmathies@mozilla.com
+Core,Window Management,Frontend,enndeakin@gmail.com
+Core,XBL,DOM,bgrinstead@mozilla.com
+Core,XML,DOM,peterv@propagandism.org
+Core,XPCOM,Platform,nika@thelayzells.com
+Core,XPConnect,DOM,peterv@propagandism.org
+Core,XSLT,DOM,peterv@propagandism.org
+Core,XUL,DOM,enndeakin@gmail.com

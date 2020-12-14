@@ -335,7 +335,7 @@ def component_to_team(
             product_data["all_components"]
             or component in product_data["named_components"]
             or any(
-                component.startswith(prefix)
+                component.lower().startswith(prefix.lower())
                 for prefix in product_data["prefixed_components"]
             )
         ):
