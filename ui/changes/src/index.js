@@ -282,9 +282,8 @@ function addRow(bugSummary) {
   );
   if (lines_added != 0) {
     if (lines_unknown != 0) {
-      coverage_column.textContent = `${lines_covered}-${
-        lines_covered + lines_unknown
-      } of ${lines_added}`;
+      coverage_column.textContent = `${lines_covered}-${lines_covered + lines_unknown
+        } of ${lines_added}`;
     } else {
       coverage_column.textContent = `${lines_covered} of ${lines_added}`;
     }
@@ -551,7 +550,7 @@ function filterByCreationDate(bugSummaries) {
     bugSummaries = bugSummaries.filter(
       (bugSummary) =>
         Temporal.PlainDate.compare(
-          Temporal.PlainDate.from(bugSummary.creation_date),
+          bugSummary.creation_date,
           startDate
         ) >= 0
     );
@@ -563,7 +562,7 @@ function filterByCreationDate(bugSummaries) {
     bugSummaries = bugSummaries.filter(
       (bugSummary) =>
         Temporal.PlainDate.compare(
-          Temporal.PlainDate.from(bugSummary.creation_date),
+          creation_date,
           endDate
         ) <= 0
     );
@@ -582,8 +581,8 @@ async function renderRegressionsChart(chartEl, bugSummaries) {
   let minDate = Temporal.PlainDate.from(
     bugSummaries.reduce((minSummary, summary) =>
       Temporal.PlainDate.compare(
-        Temporal.PlainDate.from(summary.creation_date),
-        Temporal.PlainDate.from(minSummary.creation_date)
+        summary.creation_date,
+        minSummary.creation_date
       ) < 0
         ? summary
         : minSummary
@@ -683,16 +682,15 @@ async function renderTypesChart(chartEl, bugSummaries) {
     return;
   }
 
-  let minDate = Temporal.PlainDate.from(
+  let minDate =
     bugSummaries.reduce((minSummary, summary) =>
       Temporal.PlainDate.compare(
-        Temporal.PlainDate.from(summary.creation_date),
-        Temporal.PlainDate.from(minSummary.creation_date)
+        summary.creation_date,
+        minSummary.creation_date
       ) < 0
         ? summary
         : minSummary
-    ).creation_date
-  );
+    ).creation_date;ß
 
   let summaryData = await getSummaryData(
     bugSummaries,
@@ -851,9 +849,7 @@ async function renderUI(rerenderSummary = true) {
     bugSummaries = bugSummaries.filter((bugSummary) => {
       return (
         Temporal.PlainDate.compare(
-          Temporal.PlainDate.from(
-            bugSummary.date ? bugSummary.date : bugSummary.creation_date
-          ),
+          bugSummary.date ? bugSummary.date : bugSummary.creation_date,
           startDate
         ) >= 0
       );
@@ -866,9 +862,7 @@ async function renderUI(rerenderSummary = true) {
     bugSummaries = bugSummaries.filter((bugSummary) => {
       return (
         Temporal.PlainDate.compare(
-          Temporal.PlainDate.from(
-            bugSummary.date ? bugSummary.date : bugSummary.creation_date
-          ),
+          bugSummary.date ? bugSummary.date : bugSummary.creation_date,
           endDate
         ) <= 0
       );
@@ -945,8 +939,8 @@ async function renderUI(rerenderSummary = true) {
   if (sortBy[0] == "Date") {
     sortFunction = function (a, b) {
       return Temporal.PlainDate.compare(
-        Temporal.PlainDate.from(a.date ? a.date : a.creation_date),
-        Temporal.PlainDate.from(b.date ? b.date : b.creation_date)
+        a.date ? a.date : a.creation_date,
+        b.date ? b.date : b.creation_date
       );
     };
   } else if (sortBy[0] == "Riskiness") {

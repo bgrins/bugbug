@@ -139,6 +139,14 @@ export let landingsData = (async function () {
   let returnedObject = {};
   for (let date of orderedDates) {
     returnedObject[date] = json[date];
+
+    // Parse strings as dates now so consumers don't have to later
+    for (let obj of returnedObject[date]) {
+      obj.creation_dateTemporal =  Temporal.PlainDate.from(obj.creation_date);
+      if (obj.date) {
+        obj.dateTemporal =  Temporal.PlainDate.from(obj.date);
+      }
+    }
   }
 
   document.body.classList.remove("loading-data");
@@ -168,15 +176,15 @@ export async function getSummaryData(
   let dates = [...new Set(bugSummaries.map((summary) => dateGetter(summary)))];
   dates.sort((a, b) =>
     Temporal.PlainDate.compare(
-      Temporal.PlainDate.from(a),
-      Temporal.PlainDate.from(b)
+      a,
+      b
     )
   );
-
+console.log(dates.map(d=>d.toString()))
   let dailyData = {};
   for (let date of dates) {
     if (
-      Temporal.PlainDate.compare(Temporal.PlainDate.from(date), startDate) < 1
+      Temporal.PlainDate.compare(date, startDate) < 1
     ) {
       continue;
     }
@@ -204,7 +212,7 @@ export async function getSummaryData(
   if (grouping == "weekly") {
     let weeklyData = {};
     for (let daily in dailyData) {
-      let date = Temporal.PlainDate.from(daily);
+      let date = daily;
       let weekStart = date.subtract({ days: date.dayOfWeek }).toString();
 
       if (!weeklyData[weekStart]) {
@@ -220,7 +228,7 @@ export async function getSummaryData(
   } else if (grouping == "monthly") {
     let monthlyData = {};
     for (let daily in dailyData) {
-      let date = Temporal.PlainDate.from(daily);
+      let date = daily;
       let yearMonth = Temporal.PlainYearMonth.from(date);
 
       if (!monthlyData[yearMonth]) {
@@ -240,7 +248,7 @@ export async function getSummaryData(
       for (const [cur_version, cur_date] of Object.entries(releases)) {
         if (
           Temporal.PlainDate.compare(
-            Temporal.PlainDate.from(daily),
+            daily,
             Temporal.PlainDate.from(cur_date)
           ) < 1
         ) {
