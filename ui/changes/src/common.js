@@ -4,10 +4,15 @@ import localForage from "localforage";
 
 // let METABUGS_URL =
 //   "https://bugzilla.mozilla.org/rest/bug?include_fields=id,summary,status&keywords=feature-testing-meta%2C%20&keywords_type=allwords";
+// let LANDINGS_URL =
+//   "https://community-tc.services.mozilla.com/api/index/v1/task/project.bugbug.landings_risk_report.latest/artifacts/public/landings_by_date.json";
+// let COMPONENT_CONNECTIONS_URL =
+//   "https://community-tc.services.mozilla.com/api/index/v1/task/project.bugbug.landings_risk_report.latest/artifacts/public/component_connections.json";
 let LANDINGS_URL =
-  "https://community-tc.services.mozilla.com/api/index/v1/task/project.bugbug.landings_risk_report.latest/artifacts/public/landings_by_date.json";
+  "./example-data-landings.json";
 let COMPONENT_CONNECTIONS_URL =
-  "https://community-tc.services.mozilla.com/api/index/v1/task/project.bugbug.landings_risk_report.latest/artifacts/public/component_connections.json";
+  "./example-data-connections.json";
+
 
 function getCSSVariableValue(name) {
   return getComputedStyle(document.documentElement)
@@ -96,20 +101,29 @@ const MEDIUM_RISK_COLOR = "darkkhaki";
 const LOW_RISK_COLOR = "green";
 
 let taskclusterLandingsArtifact = (async function () {
-  let json = await EXPIRE_CACHE.get("taskclusterLandingsArtifact");
-  if (!json) {
-    let response = await fetch(LANDINGS_URL);
-    json = await response.json();
-    // 30 minutes
-    EXPIRE_CACHE.set("taskclusterLandingsArtifact", json, 60 * 30);
-  } else {
-    console.log("taskclusterLandingsArtifact cache hit", json);
-  }
-
+  let response = await fetch(LANDINGS_URL);
+  let json = await response.json();
   return json;
+
+  // let json = await EXPIRE_CACHE.get("taskclusterLandingsArtifact");
+  // if (!json) {
+  //   let response = await fetch(LANDINGS_URL);
+  //   json = await response.json();
+  //   // 30 minutes
+  //   EXPIRE_CACHE.set("taskclusterLandingsArtifact", json, 60 * 30);
+  // } else {
+  //   console.log("taskclusterLandingsArtifact cache hit", json);
+  // }
+
+  // return json;
 })();
 
 let taskclusterComponentConnectionsArtifact = (async function () {
+  let response = await fetch(COMPONENT_CONNECTIONS_URL);
+  let json = await response.json();
+  return json;
+
+  /*
   let json = await EXPIRE_CACHE.get("taskclusterComponentConnectionsArtifact");
   if (!json) {
     let response = await fetch(COMPONENT_CONNECTIONS_URL);
@@ -121,6 +135,7 @@ let taskclusterComponentConnectionsArtifact = (async function () {
   }
 
   return json;
+  */
 })();
 
 export let componentConnections = (async function () {
