@@ -27,6 +27,6 @@
   "dependencies": {
     "apexcharts": "^3.6.12",
     "localforage": "^1.9.0",
-    "proposal-temporal": "^0.6.0"
+    "proposal-temporal": "^0.8.0"
   }
 }
