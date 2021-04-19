@@ -16,7 +16,7 @@
     "copy-webpack-plugin": "^6.3.2",
     "css-minimizer-webpack-plugin": "^1.1.5",
     "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-mozilla": "^2.9.1",
+    "eslint-plugin-mozilla": "^2.10.0",
     "eslint-webpack-plugin": "^2.4.0",
     "html-webpack-plugin": "^4.5.0",
     "prettier": "^1.19.1",
