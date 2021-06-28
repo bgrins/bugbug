@@ -14,7 +14,7 @@
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.2",
-    "css-minimizer-webpack-plugin": "^1.1.5",
+    "css-minimizer-webpack-plugin": "^3.0.2",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-mozilla": "^2.9.1",
     "eslint-webpack-plugin": "^2.4.0",
